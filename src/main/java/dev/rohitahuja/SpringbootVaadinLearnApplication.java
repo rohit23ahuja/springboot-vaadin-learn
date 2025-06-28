@@ -2,12 +2,14 @@ package dev.rohitahuja;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.vaadin.flow.theme.Theme;
+import com.vaadin.flow.component.page.AppShellConfigurator;
 
 @SpringBootApplication
-public class SpringbootVaadinLearnApplication {
+@Theme("my-theme")
+public class SpringbootVaadinLearnApplication implements AppShellConfigurator {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringbootVaadinLearnApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootVaadinLearnApplication.class, args);
+    }
 }
