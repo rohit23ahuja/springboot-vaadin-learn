@@ -1,11 +1,15 @@
-package dev.rohitahuja.post;
+package dev.rohitahuja.views;
 
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.GridVariant;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import dev.rohitahuja.post.Post;
+import dev.rohitahuja.post.PostService;
 
-@Route("posts")
+@PageTitle("Posts")
+@Route(value = "posts", layout = MainLayout.class)
 class PostsView extends Div {
 
     public PostsView(PostService postService) {

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-class PostService {
+public class PostService {
 
     private static final Logger _log = LoggerFactory.getLogger(PostService.class);
     private final List<Post> posts = new ArrayList<>();
@@ -27,7 +27,7 @@ class PostService {
         }
     }
 
-    List<Post> findAll() {
+    public List<Post> findAll() {
         return posts;
     }
 

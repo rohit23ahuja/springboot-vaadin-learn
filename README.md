@@ -24,3 +24,9 @@ Downloaded from central: https://repo.maven.apache.org/maven2/com/vaadin/vaadin-
 The view class is a target of Route. if it has parameters it should implement HasUrlParameter<T> and define the parameter type using generics
 
 App Layout is a component for the root layout of a Vaadin application. It provides predefined areas for the navigation drawer, the header, and the view’s content.
+
+References -
+https://www.youtube.com/watch?v=OoaxVk9PoCw
+
+For filters - https://vaadin.com/blog/advanced-rag-techniques-with-spring-ai
+https://vaadin.com/forum/t/app-starter-for-building-a-chat-with-docs-rag-app-with-vaadin-and-langchain4j/166220

@@ -6,7 +6,7 @@ import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.component.page.AppShellConfigurator;
 
 @SpringBootApplication
-@Theme("my-theme")
+@Theme("doc-chat")
 public class SpringbootVaadinLearnApplication implements AppShellConfigurator {
 
     public static void main(String[] args) {
