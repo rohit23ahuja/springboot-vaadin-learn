@@ -30,3 +30,7 @@ https://www.youtube.com/watch?v=OoaxVk9PoCw
 
 For filters - https://vaadin.com/blog/advanced-rag-techniques-with-spring-ai
 https://vaadin.com/forum/t/app-starter-for-building-a-chat-with-docs-rag-app-with-vaadin-and-langchain4j/166220
+
+https://vaadin.com/blog/connecting-llms-to-your-vaadin-app-with-spring-ai-tool-calling
+https://github.com/marcushellberg/vaadin-spring-ai-tools
+https://github.com/spring-ai-community/spring-ai-vaadin#
