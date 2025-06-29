@@ -55,6 +55,7 @@ public class MainLayout extends AppLayout {
         nav.addItem(new SideNavItem("Posts", PostsView.class, LineAwesomeIcon.COMMENTS.create()));
         nav.addItem(new SideNavItem("Main", MainView.class, LineAwesomeIcon.AIRBNB.create()));
         nav.addItem(new SideNavItem("Knowledge Search", KnowledgeSearchView.class, LineAwesomeIcon.IMAGE.create()));
+        nav.addItem(new SideNavItem("Chat", ChatView.class, LineAwesomeIcon.ADDRESS_BOOK.create()));
 
 
         return nav;

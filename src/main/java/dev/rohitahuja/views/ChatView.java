@@ -1,6 +1,5 @@
 package dev.rohitahuja.views;
 
-
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.messages.MessageInput;
 import com.vaadin.flow.component.orderedlayout.Scroller;
@@ -8,17 +7,19 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
+import dev.rohitahuja.rag.Assistant;
 import org.vaadin.firitin.components.messagelist.MarkdownMessage;
 
-import java.util.UUID;
+@Route(value = "chat", layout = MainLayout.class)
+@PageTitle("Chat Assistant")
+public class ChatView extends VerticalLayout {
 
-@PageTitle("Knowledge Search")
-@Route(value = "search", layout = MainLayout.class)
-public class KnowledgeSearchView extends VerticalLayout {
+    private final Assistant assistant;
+    private final MessageInput messageInput = new MessageInput();
 
-    private MessageInput messageInput = new MessageInput();
+    public ChatView(Assistant assistant) {
+        this.assistant = assistant;
 
-    public KnowledgeSearchView() {
         var newChatButton = new Button("New Chat");
         var messageList = new VerticalLayout();
         focusMessageInput();
@@ -47,24 +48,28 @@ public class KnowledgeSearchView extends VerticalLayout {
 
             messageList.add(question);
             messageList.add(answer);
-//            aiAssistant.chat(chatId, questionText)
-//                    .onNext(answer::appendMarkdownAsync)
-//                    .onError(err -> System.err.println("ooops" + e))
-//                    .start();
 
+            //var ui = getUI().get();
+            //assistant.stream(chatId, userMessage.getText(), attachmentFiles, options)
+            //        .subscribe(
+            //                // Append to the assistantMessage as it streams
+           //                 token -> ui.access(() -> assistantMessage.appendText(token)));
 
-                });
+            var ui = getUI().get();
+            assistant.chat(questionText)
+                    .subscribe(token -> {
+                    ui.access(() -> answer.appendMarkdownAsync(token));
+                    });
 
-
-
+        });
         add(newChatButton);
         var scroller = new Scroller(messageList);
         scroller.setWidthFull();
         scroller.addClassName(LumoUtility.AlignContent.END);
         addAndExpand(scroller);
         add(messageInput);
-
     }
+
 
     private void focusMessageInput() {
         messageInput.getElement().executeJs("requestAnimationFrame(() => this.querySelector('vaadin-text-area').focus() )");
