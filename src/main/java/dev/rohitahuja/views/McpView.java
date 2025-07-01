@@ -6,15 +6,15 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import dev.rohitahuja.tools.ToolsService;
+import dev.rohitahuja.mcp.McpService;
 import org.vaadin.firitin.components.messagelist.MarkdownMessage;
 
-@PageTitle("Tool Calling")
+@PageTitle("MCP")
 @Menu(order = 0)
-@Route(value = "tools", layout = MainLayout.class)
-public class ToolsView extends VerticalLayout {
+@Route(value = "mcp", layout = MainLayout.class)
+public class McpView extends VerticalLayout {
 
-    public ToolsView(ToolsService toolsService) {
+    public McpView(McpService mcpService) {
         var messageList = new VerticalLayout();
         var scroller = new Scroller(messageList);
         var messageInput = new MessageInput();
@@ -28,8 +28,8 @@ public class ToolsView extends VerticalLayout {
             var assistantMessage = new MarkdownMessage("", "Assistant");
             messageList.add(assistantMessage);
 
-            toolsService
-                    .callTool(userMessage)
+            mcpService
+                    .mcp(userMessage)
                     .subscribe(assistantMessage::appendMarkdownAsync);
         });
 
